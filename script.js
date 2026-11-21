@@ -6,7 +6,7 @@ const CONFIG = {
   brand: "Liyana's",
   // Live chat (tawk.to): Property ID is on your tawk.to dashboard under Administration > Overview.
   // Widget ID stays "default" unless your tawk.to embed code ends in a different ID.
-  tawk: { propertyId: "6b01a7f77a329b3cbd98b3ca", widgetId: "default" },
+  tawk: { propertyId: "6b01a7f77a329b3cbd98b3ca", widgetId: "1k7v7g8hc" },
   currency: "USD",
   freeShippingOver: 75,
   // Crypto wallets shown at checkout. Double-check any change here: a wrong character means lost funds.
