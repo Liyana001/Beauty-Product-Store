@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liyana's | Luxury Beauty, Los Angeles</title>
+  <meta name="description" content="Liyana's is a Los Angeles luxury beauty boutique: skincare, makeup, hair and body rituals, priced in USD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="announce">Complimentary shipping on orders over $75 &nbsp;·&nbsp; Shipping from Los Angeles, California</div>
+
+  <header class="site-header" id="top">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#story">Our Story</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="logo" href="#top" aria-label="Liyana's home">Liyana's</a>
+    <div class="header-actions">
+      <a class="support-link" data-wa data-wa-text="Hello Liyana's, I need some help." href="#">Support</a>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Los Angeles · California</p>
+        <h1>Beauty, composed<br><em>in golden light.</em></h1>
+        <p class="hero-sub">Considered skincare, makeup and body rituals, made to feel as good as they look.</p>
+        <div class="hero-cta">
+          <a class="btn btn-dark" href="#shop">Shop the Collection</a>
+          <a class="btn btn-ghost" data-wa data-wa-text="Hello Liyana's, I would like a product recommendation." href="#">Ask a Specialist</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <svg class="hero-bottle" viewBox="0 0 160 280" fill="none">
+          <defs>
+            <linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#f5e8d0"/><stop offset=".5" stop-color="#d9bc8a"/><stop offset="1" stop-color="#a98655"/></linearGradient>
+          </defs>
+          <rect x="62" y="10" width="36" height="38" rx="4" fill="#2b2420"/>
+          <rect x="70" y="48" width="20" height="16" fill="#c9a96e"/>
+          <rect x="30" y="64" width="100" height="200" rx="26" fill="url(#hg)"/>
+          <rect x="44" y="110" width="72" height="90" rx="4" fill="#fffaf0" opacity=".85"/>
+          <text x="80" y="150" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#2b2420">Liyana's</text>
+          <text x="80" y="170" text-anchor="middle" font-family="Jost, sans-serif" font-size="6.5" letter-spacing="2" fill="#7a6a58">GOLDEN HOUR</text>
+          <text x="80" y="182" text-anchor="middle" font-family="Jost, sans-serif" font-size="6.5" letter-spacing="2" fill="#7a6a58">SERUM</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="values" aria-label="Our promises">
+      <div><span>01</span><h3>Clean Formulas</h3><p>Thoughtfully chosen ingredients you can feel good about.</p></div>
+      <div><span>02</span><h3>Ships from LA</h3><p>Packed by hand in Los Angeles, California.</p></div>
+      <div><span>03</span><h3>Personal Guidance</h3><p>Chat with us on WhatsApp for advice, anytime.</p></div>
+      <div><span>04</span><h3>Gift Ready</h3><p>Every order arrives beautifully wrapped.</p></div>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="section-head">
+        <p class="eyebrow">Collections</p>
+        <h2>Rituals for every <em>glow</em></h2>
+      </div>
+      <div class="coll-grid">
+        <a class="coll coll-1" href="#shop" data-filter="Skincare"><span>Skincare</span><small>Serums, creams, cleansers</small></a>
+        <a class="coll coll-2" href="#shop" data-filter="Makeup"><span>Makeup</span><small>Face, lips, eyes</small></a>
+        <a class="coll coll-3" href="#shop" data-filter="Hair"><span>Hair</span><small>Oils &amp; treatments</small></a>
+        <a class="coll coll-4" href="#shop" data-filter="Body"><span>Body</span><small>Oils, bronzers, butters</small></a>
+      </div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="section-head">
+        <p class="eyebrow">The Shop</p>
+        <h2>Signature <em>favorites</em></h2>
+        <p class="note">Sample products shown as placeholders. Prices in US dollars.</p>
+      </div>
+      <div class="filters" id="filters" role="tablist" aria-label="Filter products"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-art" aria-hidden="true"><div class="story-circle"><span>L</span></div></div>
+      <div class="story-copy">
+        <p class="eyebrow">Our Story</p>
+        <h2>Born in the <em>California sun</em></h2>
+        <p>Liyana's began with a simple idea: luxury beauty should feel personal. From our Los Angeles studio, we choose every product for how it performs on real skin, and how it makes you feel when you reach for it each morning.</p>
+        <p>Whether you are building a first ritual or perfecting a long-loved one, we are here to guide you, one message away.</p>
+        <a class="btn btn-dark" data-wa data-wa-text="Hello Liyana's, I would like to learn more about your products." href="#">Talk to Us on WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="section-head">
+        <p class="eyebrow">Visit &amp; Contact</p>
+        <h2>Find us in <em>Los Angeles</em></h2>
+      </div>
+      <div class="visit-grid">
+        <div><h3>Location</h3><p>Los Angeles, California<br>United States</p></div>
+        <div><h3>Support</h3><p>Message us on WhatsApp<br><a data-wa data-wa-text="Hello Liyana's, I have a question." href="#">+852 4765569</a></p></div>
+        <div><h3>Currency</h3><p>All prices in USD ($)<br>Free shipping over $75</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="logo logo-light" href="#top">Liyana's</a>
+    <p>Luxury beauty · Los Angeles, California</p>
+    <p class="small">© <span id="year"></span> Liyana's. All rights reserved.</p>
+  </footer>
+
+  <a class="wa-float" data-wa data-wa-text="Hello Liyana's, I need some help." href="#" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.8 1.500 5.900 1.500 6.900 0 12.500-5.600 12.500-12.500S22.900 3 16 3zm0 22.900c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.400 1.200 1.200-4.300-.3-.4a10.300 10.300 0 0 1-1.600-5.600C5.200 9.800 10 5.100 16 5.100s10.800 4.700 10.800 10.400S21.900 25.900 16 25.900zm5.900-7.700c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.800 8.800 0 0 1-2.600-1.600 9.700 9.700 0 0 1-1.800-2.200c-.2-.3 0-.5.100-.7l.5-.6.300-.5c.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1.100 2.800 1.200 3c.2.200 2.100 3.200 5.100 4.500 3 1.200 3 .8 3.600.8s1.900-.8 2.200-1.500.3-1.400.2-1.500-.3-.2-.6-.4z"/></svg>
+    <span>Chat with us</span>
+  </a>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your Bag</h3>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="row"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <p class="small" id="shipNote"></p>
+      <a class="btn btn-dark btn-block" id="checkout" href="#" target="_blank" rel="noopener">Order via WhatsApp</a>
+      <p class="small">Your order summary opens in WhatsApp so we can confirm details and payment with you.</p>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
