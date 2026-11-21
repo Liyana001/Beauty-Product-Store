@@ -4,7 +4,7 @@
    ============================================================ */
 const CONFIG = {
   brand: "Liyana's",
-  whatsappNumber: "8524765569",      // digits only, with country code, no + or spaces
+  whatsappNumber: "85247657569",      // digits only, with country code, no + or spaces
   currency: "USD",
   freeShippingOver: 75,
   // Crypto wallets shown at checkout. Double-check any change here: a wrong character means lost funds.
