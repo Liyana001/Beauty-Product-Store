@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth &amp; Compound Growth — Educational Literacy Tool</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cormorant Garamond (Serif Headings) & Plus Jakarta Sans (Clean Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fbf8f3',
+            ivory: '#f4efe6',
+            charcoal: '#1e1b18',
+            muted: '#665e54',
+            gold: '#b08d57',
+            goldLight: '#d4b98c',
+            goldDark: '#8f6f3e',
+            borderWarm: '#e6ded0',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom luxury range slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #e6ded0;
+      border-radius: 999px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #b08d57;
+      border: 3px solid #fbf8f3;
+      box-shadow: 0 2px 6px rgba(30, 27, 24, 0.25);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.12);
+      background: #8f6f3e;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #b08d57;
+      border: 3px solid #fbf8f3;
+      box-shadow: 0 2px 6px rgba(30, 27, 24, 0.25);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    /* Smooth transitions */
+    .card-elevated {
+      background-color: #ffffff;
+      border: 1px solid #e6ded0;
+      box-shadow: 0 10px 30px -10px rgba(30, 27, 24, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal font-sans antialiased selection:bg-gold/20 selection:text-charcoal">
+
+  <!-- Top Educational Banner -->
+  <div class="bg-charcoal text-cream text-xs py-2.5 px-4 text-center tracking-wide">
+    <span class="text-goldLight font-semibold uppercase tracking-widest mr-2">Educational Resource</span>
+    Interactive Financial Literacy &amp; Long-Term Compounding Simulator — For Illustrative Learning Only
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-borderWarm bg-cream/90 backdrop-blur-md sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full border border-gold flex items-center justify-center text-gold font-serif text-xl font-bold">
+          C
+        </div>
+        <div>
+          <span class="font-serif text-2xl font-semibold tracking-tight block leading-none">Compound &amp; Clarity</span>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-muted">Financial Literacy Studio</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
+        <a href="#calculator" class="hover:text-charcoal transition-colors">Growth Simulator</a>
+        <a href="#literacy" class="hover:text-charcoal transition-colors">Core Concepts</a>
+        <a href="#disclaimer" class="hover:text-charcoal transition-colors">Disclosures</a>
+        <a href="./index.html" class="hover:text-charcoal transition-colors">Back to Liyana's</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-16">
+
+    <!-- Hero Introduction -->
+    <section class="max-w-3xl mx-auto text-center space-y-4">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Long-Term Wealth Literacy</p>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-charcoal leading-[1.1]">
+        Understanding the Quiet Power of Compound Growth
+      </h1>
+      <p class="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+        Explore how time, consistent monthly contributions, and realistic historical market benchmarks work together—without unrealistic promises or short-term speculation.
+      </p>
+    </section>
+
+    <!-- Interactive Compound-Growth Calculator Section -->
+    <section id="calculator" class="scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Left Column: Controls & Inputs (5 cols) -->
+        <div class="lg:col-span-5 card-elevated rounded-2xl p-6 sm:p-8 space-y-7">
+          <div class="border-b border-borderWarm pb-4">
+            <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-charcoal">Simulation Parameters</h2>
+            <p class="text-xs text-muted mt-1">Adjust sliders or type values to model hypothetical growth.</p>
+          </div>
+
+          <!-- 1. Initial Amount -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <label for="initialInput" class="text-sm font-semibold text-charcoal">Initial Starting Amount</label>
+              <div class="relative flex items-center">
+                <span class="absolute left-3 text-muted text-sm font-medium">$</span>
+                <input
+                  type="number"
+                  id="initialInput"
+                  min="100"
+                  max="50000"
+                  step="100"
+                  value="2500"
+                  class="w-28 pl-7 pr-2.5 py-1.5 text-right text-sm font-semibold bg-cream border border-borderWarm rounded-lg focus:outline-none focus:border-gold"
+                />
+              </div>
+            </div>
+            <input type="range" id="initialSlider" min="100" max="50000" step="100" value="2500" />
+            <div class="flex justify-between text-[11px] text-muted">
+              <span>$100</span>
+              <span>$25,000</span>
+              <span>$50,000</span>
+            </div>
+          </div>
+
+          <!-- 2. Monthly Contribution -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <label for="monthlyInput" class="text-sm font-semibold text-charcoal">Monthly Contribution</label>
+              <div class="relative flex items-center">
+                <span class="absolute left-3 text-muted text-sm font-medium">$</span>
+                <input
+                  type="number"
+                  id="monthlyInput"
+                  min="0"
+                  max="2000"
+                  step="25"
+                  value="250"
+                  class="w-28 pl-7 pr-2.5 py-1.5 text-right text-sm font-semibold bg-cream border border-borderWarm rounded-lg focus:outline-none focus:border-gold"
+                />
+              </div>
+            </div>
+            <input type="range" id="monthlySlider" min="0" max="2000" step="25" value="250" />
+            <div class="flex justify-between text-[11px] text-muted">
+              <span>$0/mo</span>
+              <span>$1,000/mo</span>
+              <span>$2,000/mo</span>
+            </div>
+          </div>
+
+          <!-- 3. Time Horizon -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <label for="yearsInput" class="text-sm font-semibold text-charcoal">Time Horizon</label>
+              <div class="flex items-center gap-1.5 bg-cream border border-borderWarm rounded-lg px-3 py-1.5">
+                <input
+                  type="number"
+                  id="yearsInput"
+                  min="1"
+                  max="30"
+                  step="1"
+                  value="10"
+                  class="w-12 text-right text-sm font-semibold bg-transparent focus:outline-none"
+                />
+                <span class="text-xs text-muted font-medium">Years</span>
+              </div>
+            </div>
+            <input type="range" id="yearsSlider" min="1" max="30" step="1" value="10" />
+            <div class="flex justify-between text-[11px] text-muted">
+              <span>1 Yr</span>
+              <span>15 Yrs</span>
+              <span>30 Yrs</span>
+            </div>
+          </div>
+
+          <!-- 4. Historical Benchmark Presets -->
+          <div class="space-y-3 pt-1">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-semibold text-charcoal">Historical Benchmark Preset</span>
+              <span id="activeRateBadge" class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-gold/15 text-goldDark">
+                9.0% Annual Avg
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 gap-2.5" id="presetContainer">
+              <!-- Conservative -->
+              <button
+                type="button"
+                data-rate="4.5"
+                data-name="Conservative Savings"
+                class="preset-btn text-left p-3.5 rounded-xl border border-borderWarm bg-cream/60 hover:border-gold transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div class="text-sm font-semibold text-charcoal">Conservative Savings / T-Bills</div>
+                  <div class="text-xs text-muted">Lower volatility, cash-equivalent yield benchmark</div>
+                </div>
+                <span class="font-serif text-lg font-bold text-charcoal ml-3">~4.5%</span>
+              </button>
+
+              <!-- Balanced -->
+              <button
+                type="button"
+                data-rate="7.0"
+                data-name="Balanced Portfolio"
+                class="preset-btn text-left p-3.5 rounded-xl border border-borderWarm bg-cream/60 hover:border-gold transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div class="text-sm font-semibold text-charcoal">Balanced Portfolio (60/40 Mix)</div>
+                  <div class="text-xs text-muted">Diversified blend of global equities &amp; fixed income</div>
+                </div>
+                <span class="font-serif text-lg font-bold text-charcoal ml-3">~7.0%</span>
+              </button>
+
+              <!-- S&P 500 -->
+              <button
+                type="button"
+                data-rate="9.0"
+                data-name="S&P 500 Historical Avg"
+                class="preset-btn active text-left p-3.5 rounded-xl border-2 border-gold bg-gold/10 transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div class="text-sm font-semibold text-charcoal">S&amp;P 500 Historical Avg (8%–10%)</div>
+                  <div class="text-xs text-muted">Long-term U.S. large-cap index annualized average</div>
+                </div>
+                <span class="font-serif text-lg font-bold text-goldDark ml-3">~9.0%</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Real-Time Breakdown & Interactive Chart (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- 3 Summary KPI Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Total Principal -->
+            <div class="card-elevated rounded-2xl p-5">
+              <div class="flex items-center gap-2 text-xs font-medium text-muted uppercase tracking-wider">
+                <span class="w-2.5 h-2.5 rounded-full bg-charcoal inline-block"></span>
+                Total Principal
+              </div>
+              <div id="totalPrincipalDisplay" class="font-serif text-2xl sm:text-3xl font-bold text-charcoal mt-2">
+                $32,500
+              </div>
+              <p class="text-xs text-muted mt-1">Your out-of-pocket contributions</p>
+            </div>
+
+            <!-- Estimated Compound Growth -->
+            <div class="card-elevated rounded-2xl p-5">
+              <div class="flex items-center gap-2 text-xs font-medium text-muted uppercase tracking-wider">
+                <span class="w-2.5 h-2.5 rounded-full bg-gold inline-block"></span>
+                Compound Growth
+              </div>
+              <div id="totalGrowthDisplay" class="font-serif text-2xl sm:text-3xl font-bold text-goldDark mt-2">
+                $19,528
+              </div>
+              <p id="growthPercentDisplay" class="text-xs text-muted mt-1">+60.1% cumulative return</p>
+            </div>
+
+            <!-- Projected Ending Balance -->
+            <div class="rounded-2xl p-5 bg-charcoal text-cream shadow-lg border border-charcoal">
+              <div class="flex items-center gap-2 text-xs font-medium text-goldLight uppercase tracking-wider">
+                Projected Balance
+              </div>
+              <div id="endingBalanceDisplay" class="font-serif text-2xl sm:text-3xl font-bold text-white mt-2">
+                $52,028
+              </div>
+              <p id="horizonSummaryDisplay" class="text-xs text-cream/75 mt-1">After 10 years at 9.0% APY</p>
+            </div>
+          </div>
+
+          <!-- Interactive Growth Chart Card -->
+          <div class="card-elevated rounded-2xl p-6 sm:p-8 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-borderWarm pb-4">
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-charcoal">Principal vs. Compound Growth Trajectory</h3>
+                <p class="text-xs text-muted mt-0.5">Hover or tap any year along the chart to inspect annual milestones</p>
+              </div>
+              <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-sm bg-charcoal inline-block"></span> Principal
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-sm bg-gold inline-block"></span> Compound Growth
+                </span>
+              </div>
+            </div>
+
+            <!-- Interactive Hover Readout Bar -->
+            <div id="chartTooltipBar" class="bg-ivory/80 border border-borderWarm rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="font-semibold text-charcoal" id="tooltipYear">Year 10 Snapshot</span>
+              <div class="flex flex-wrap items-center gap-4">
+                <span class="text-muted">Principal: <strong id="tooltipPrincipal" class="text-charcoal">$32,500</strong></span>
+                <span class="text-muted">Growth: <strong id="tooltipGrowth" class="text-goldDark">$19,528</strong></span>
+                <span class="text-muted">Total: <strong id="tooltipTotal" class="text-charcoal">$52,028</strong></span>
+              </div>
+            </div>
+
+            <!-- Responsive Canvas Container -->
+            <div id="canvasWrapper" class="relative w-full h-72 sm:h-80">
+              <canvas id="growthChart" class="w-full h-full block cursor-crosshair"></canvas>
+            </div>
+
+            <!-- Proportions Bar -->
+            <div class="space-y-2 pt-2">
+              <div class="flex justify-between text-xs font-medium">
+                <span class="text-charcoal" id="principalShareLabel">Principal: 62%</span>
+                <span class="text-goldDark" id="growthShareLabel">Compound Growth: 38%</span>
+              </div>
+              <div class="w-full h-2.5 bg-ivory rounded-full overflow-hidden flex">
+                <div id="principalBar" class="bg-charcoal h-full transition-all duration-300" style="width: 62%"></div>
+                <div id="growthBar" class="bg-gold h-full transition-all duration-300" style="width: 38%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Financial Literacy Educational Cards -->
+    <section id="literacy" class="scroll-mt-24 space-y-8">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Essential Concepts</p>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-charcoal mt-1">
+          Three Pillars of Realistic Wealth Building
+        </h2>
+        <p class="text-muted text-sm sm:text-base mt-2">
+          Understanding how legitimate markets behave protects you from unrealistic promises and helps you plan with patience.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Compounding vs. Simple Interest -->
+        <article class="card-elevated rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-ivory border border-borderWarm flex items-center justify-center text-goldDark font-serif text-xl font-bold">
+              01
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-charcoal">
+              Compounding vs. Simple Interest
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              <strong class="text-charcoal">Simple interest</strong> is calculated strictly on your original principal. <strong class="text-charcoal">Compound growth</strong> earns returns on both your original contributions and the accumulated gains from previous periods.
+            </p>
+          </div>
+          <div class="bg-ivory/80 border border-borderWarm rounded-xl p-3.5 text-xs text-charcoal space-y-1">
+            <div class="font-semibold text-goldDark">Why Time Matters Most</div>
+            <p class="text-muted leading-relaxed">
+              In early years, your monthly contributions do the heavy lifting. Over 15–30 years, compounding snowballs so annual growth can eventually exceed your yearly deposits.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2: Why Short-Term Markets Fluctuate -->
+        <article class="card-elevated rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-ivory border border-borderWarm flex items-center justify-center text-goldDark font-serif text-xl font-bold">
+              02
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-charcoal">
+              Why Short-Term Markets Fluctuate
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Real financial markets never move in a straight, smooth upward line. Over days, weeks, or even a single year, asset prices rise and fall due to economic data, interest rates, earnings, and investor sentiment.
+            </p>
+          </div>
+          <div class="bg-ivory/80 border border-borderWarm rounded-xl p-3.5 text-xs text-charcoal space-y-1">
+            <div class="font-semibold text-goldDark">Red Flag Awareness</div>
+            <p class="text-muted leading-relaxed">
+              Smooth curves on a calculator show a mathematical average. Any platform claiming fixed, guaranteed daily payouts (such as 1%–2% every day) is mathematically unsustainable.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 3: Historical S&P 500 Context -->
+        <article class="card-elevated rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-ivory border border-borderWarm flex items-center justify-center text-goldDark font-serif text-xl font-bold">
+              03
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-charcoal">
+              Historical S&amp;P 500 Context
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              Historically, the broad U.S. stock market (S&amp;P 500) has delivered an annualized long-term average return of roughly <strong class="text-charcoal">8% to 10% per year</strong> over multi-decade horizons.
+            </p>
+          </div>
+          <div class="bg-ivory/80 border border-borderWarm rounded-xl p-3.5 text-xs text-charcoal space-y-1">
+            <div class="font-semibold text-goldDark">Annual Average vs. Daily Reality</div>
+            <p class="text-muted leading-relaxed">
+              While 8%–10% annually equals ~0.022%–0.027% averaged across 365 days, actual daily swings often range from -2% to +2%—requiring patience across full market cycles.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Prominent Educational Disclaimer -->
+    <section id="disclaimer" class="scroll-mt-24">
+      <div class="rounded-2xl bg-ivory border border-gold/40 p-6 sm:p-8 space-y-3">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-goldDark shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+          </svg>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-charcoal">
+            Important Educational Disclosure &amp; Risk Notice
+          </h3>
+        </div>
+        <p class="text-xs sm:text-sm text-muted leading-relaxed">
+          <strong class="text-charcoal">Hypothetical Illustrations Only:</strong> All figures, charts, and growth projections generated by this calculator are purely hypothetical mathematical illustrations created strictly for educational and financial literacy purposes. They do not represent actual investment products, guaranteed returns, or financial advice.
+        </p>
+        <p class="text-xs sm:text-sm text-muted leading-relaxed">
+          <strong class="text-charcoal">Market Risk &amp; No Guarantee:</strong> Past historical performance (including S&amp;P 500 long-term averages) does not guarantee future results. Real-world investments carry market risk, including the possible loss of principal, inflation impact, taxes, and management fees, and returns fluctuate significantly from day to day and year to year. Always consult a licensed, fiduciary financial advisor before making investment decisions.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Minimalist Footer -->
+  <footer class="border-t border-borderWarm bg-ivory/60 mt-12 py-8 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <div class="font-serif text-base text-charcoal font-semibold">Compound &amp; Clarity</div>
+      <div><a href="./index.html" class="underline hover:text-charcoal">Return to Liyana's Storefront</a> · Purely Educational Simulator</div>
+    </div>
+  </footer>
+
+  <!-- Interactive Calculator & Canvas Chart Logic -->
+  <script>
+    (function () {
+      // State variables
+      const state = {
+        initial: 2500,
+        monthly: 250,
+        years: 10,
+        annualRate: 9.0,
+        presetName: 'S&P 500 Historical Avg',
+        schedule: [],
+        hoveredIndex: null
+      };
+
+      // DOM Elements
+      const initialSlider = document.getElementById('initialSlider');
+      const initialInput = document.getElementById('initialInput');
+      const monthlySlider = document.getElementById('monthlySlider');
+      const monthlyInput = document.getElementById('monthlyInput');
+      const yearsSlider = document.getElementById('yearsSlider');
+      const yearsInput = document.getElementById('yearsInput');
+      const presetButtons = document.querySelectorAll('.preset-btn');
+      const activeRateBadge = document.getElementById('activeRateBadge');
+
+      // KPI Display Elements
+      const totalPrincipalDisplay = document.getElementById('totalPrincipalDisplay');
+      const totalGrowthDisplay = document.getElementById('totalGrowthDisplay');
+      const growthPercentDisplay = document.getElementById('growthPercentDisplay');
+      const endingBalanceDisplay = document.getElementById('endingBalanceDisplay');
+      const horizonSummaryDisplay = document.getElementById('horizonSummaryDisplay');
+
+      // Proportion Bar Elements
+      const principalShareLabel = document.getElementById('principalShareLabel');
+      const growthShareLabel = document.getElementById('growthShareLabel');
+      const principalBar = document.getElementById('principalBar');
+      const growthBar = document.getElementById('growthBar');
+
+      // Tooltip Readout Elements
+      const tooltipYear = document.getElementById('tooltipYear');
+      const tooltipPrincipal = document.getElementById('tooltipPrincipal');
+      const tooltipGrowth = document.getElementById('tooltipGrowth');
+      const tooltipTotal = document.getElementById('tooltipTotal');
+
+      // Canvas Elements
+      const canvas = document.getElementById('growthChart');
+      const canvasWrapper = document.getElementById('canvasWrapper');
+      const ctx = canvas.getContext('2d');
+
+      // Currency Formatter
+      const formatCurrency = (val) => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 0
+        }).format(Math.round(val));
+      };
+
+      // Clamp helper
+      const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+      // Calculate monthly compounded schedule year-by-year
+      function calculateSchedule() {
+        const schedule = [];
+        const monthlyRate = (state.annualRate / 100) / 12;
+        let balance = state.initial;
+        let totalPrincipal = state.initial;
+
+        // Year 0 starting point
+        schedule.push({
+          year: 0,
+          principal: totalPrincipal,
+          growth: 0,
+          total: balance
+        });
+
+        for (let yr = 1; yr <= state.years; yr++) {
+          for (let m = 1; m <= 12; m++) {
+            balance = balance * (1 + monthlyRate) + state.monthly;
+            totalPrincipal += state.monthly;
+          }
+          const growth = Math.max(0, balance - totalPrincipal);
+          schedule.push({
+            year: yr,
+            principal: totalPrincipal,
+            growth: growth,
+            total: balance
+          });
+        }
+
+        state.schedule = schedule;
+      }
+
+      // Update KPI cards, proportion bar, and default tooltip
+      function updateSummaryUI() {
+        const finalPoint = state.schedule[state.schedule.length - 1];
+        const totalPrincipal = finalPoint.principal;
+        const totalGrowth = finalPoint.growth;
+        const endingBalance = finalPoint.total;
+
+        totalPrincipalDisplay.textContent = formatCurrency(totalPrincipal);
+        totalGrowthDisplay.textContent = formatCurrency(totalGrowth);
+        endingBalanceDisplay.textContent = formatCurrency(endingBalance);
+
+        const returnPct = totalPrincipal > 0 ? ((totalGrowth / totalPrincipal) * 100).toFixed(1) : '0.0';
+        growthPercentDisplay.textContent = `+${returnPct}% cumulative return`;
+        horizonSummaryDisplay.textContent = `After ${state.years} ${state.years === 1 ? 'year' : 'years'} at ${state.annualRate.toFixed(1)}% APY`;
+        activeRateBadge.textContent = `${state.annualRate.toFixed(1)}% Annual Avg`;
+
+        // Proportions bar
+        const principalPct = endingBalance > 0 ? Math.round((totalPrincipal / endingBalance) * 100) : 100;
+        const growthPct = 100 - principalPct;
+        principalShareLabel.textContent = `Principal: ${principalPct}%`;
+        growthShareLabel.textContent = `Compound Growth: ${growthPct}%`;
+        principalBar.style.width = `${principalPct}%`;
+        growthBar.style.width = `${growthPct}%`;
+
+        // Update readout bar (either hovered year or final year)
+        const activeIdx = state.hoveredIndex !== null && state.schedule[state.hoveredIndex]
+          ? state.hoveredIndex
+          : state.schedule.length - 1;
+        updateTooltipBar(activeIdx);
+      }
+
+      function updateTooltipBar(index) {
+        const point = state.schedule[index];
+        if (!point) return;
+        tooltipYear.textContent = point.year === 0 ? 'Starting Point (Year 0)' : `Year ${point.year} Snapshot`;
+        tooltipPrincipal.textContent = formatCurrency(point.principal);
+        tooltipGrowth.textContent = formatCurrency(point.growth);
+        tooltipTotal.textContent = formatCurrency(point.total);
+      }
+
+      // Render High-DPI Responsive Stacked Area Chart on Canvas
+      function drawChart() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvasWrapper.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) return;
+
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const width = rect.width;
+        const height = rect.height;
+
+        // Padding for axes
+        const padLeft = 58;
+        const padRight = 18;
+        const padTop = 18;
+        const padBottom = 32;
+        const plotW = width - padLeft - padRight;
+        const plotH = height - padTop - padBottom;
+
+        ctx.clearRect(0, 0, width, height);
+
+        const data = state.schedule;
+        const maxVal = Math.max(...data.map(d => d.total), 1000) * 1.08;
+        const count = data.length;
+
+        const getX = (i) => padLeft + (count === 1 ? plotW / 2 : (i / (count - 1)) * plotW);
+        const getY = (val) => padTop + plotH - (val / maxVal) * plotH;
+
+        // Horizontal gridlines & Y-axis labels
+        const gridSteps = 4;
+        ctx.font = '11px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+
+        for (let s = 0; s <= gridSteps; s++) {
+          const val = (maxVal / gridSteps) * s;
+          const y = getY(val);
+
+          ctx.strokeStyle = '#ede6d8';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(padLeft, y);
+          ctx.lineTo(width - padRight, y);
+          ctx.stroke();
+
+          ctx.fillStyle = '#665e54';
+          const shortLabel = val >= 1000000
+            ? `$${(val / 1000000).toFixed(1)}M`
+            : val >= 1000
+              ? `$${Math.round(val / 1000)}k`
+              : `$${Math.round(val)}`;
+          ctx.fillText(shortLabel, padLeft - 10, y);
+        }
+
+        // X-axis year labels
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        const labelStep = Math.max(1, Math.ceil((count - 1) / 6));
+        for (let i = 0; i < count; i++) {
+          if (i === 0 || i === count - 1 || i % labelStep === 0) {
+            const x = getX(i);
+            ctx.fillStyle = '#665e54';
+            ctx.fillText(`Yr ${data[i].year}`, x, padTop + plotH + 10);
+          }
+        }
+
+        // 1. Total Balance Area (Gold Fill)
+        const goldGrad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
+        goldGrad.addColorStop(0, 'rgba(176, 141, 87, 0.42)');
+        goldGrad.addColorStop(1, 'rgba(176, 141, 87, 0.08)');
+
+        ctx.beginPath();
+        ctx.moveTo(getX(0), getY(0));
+        data.forEach((d, i) => ctx.lineTo(getX(i), getY(d.total)));
+        ctx.lineTo(getX(count - 1), getY(0));
+        ctx.closePath();
+        ctx.fillStyle = goldGrad;
+        ctx.fill();
+
+        // Gold top stroke
+        ctx.beginPath();
+        data.forEach((d, i) => {
+          if (i === 0) ctx.moveTo(getX(i), getY(d.total));
+          else ctx.lineTo(getX(i), getY(d.total));
+        });
+        ctx.strokeStyle = '#b08d57';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // 2. Principal Area (Charcoal Fill)
+        const charcoalGrad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
+        charcoalGrad.addColorStop(0, 'rgba(30, 27, 24, 0.85)');
+        charcoalGrad.addColorStop(1, 'rgba(30, 27, 24, 0.65)');
+
+        ctx.beginPath();
+        ctx.moveTo(getX(0), getY(0));
+        data.forEach((d, i) => ctx.lineTo(getX(i), getY(d.principal)));
+        ctx.lineTo(getX(count - 1), getY(0));
+        ctx.closePath();
+        ctx.fillStyle = charcoalGrad;
+        ctx.fill();
+
+        // Hover / Active Indicator Line & Points
+        const highlightIdx = state.hoveredIndex !== null ? state.hoveredIndex : count - 1;
+        const activePoint = data[highlightIdx];
+        if (activePoint) {
+          const hx = getX(highlightIdx);
+          const hyTotal = getY(activePoint.total);
+          const hyPrincipal = getY(activePoint.principal);
+
+          // Vertical guide line
+          ctx.save();
+          ctx.setLineDash([4, 4]);
+          ctx.strokeStyle = '#8f6f3e';
+          ctx.lineWidth = 1.25;
+          ctx.beginPath();
+          ctx.moveTo(hx, padTop);
+          ctx.lineTo(hx, padTop + plotH);
+          ctx.stroke();
+          ctx.restore();
+
+          // Total Balance Dot
+          ctx.beginPath();
+          ctx.arc(hx, hyTotal, 5.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#b08d57';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#ffffff';
+          ctx.stroke();
+
+          // Principal Dot
+          ctx.beginPath();
+          ctx.arc(hx, hyPrincipal, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#1e1b18';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#ffffff';
+          ctx.stroke();
+        }
+      }
+
+      // Master recalculate & render trigger
+      function recalculateAndRender() {
+        calculateSchedule();
+        updateSummaryUI();
+        drawChart();
+      }
+
+      // Sync slider and numeric input pairs
+      function bindInputPair(slider, input, min, max, key) {
+        slider.addEventListener('input', () => {
+          const val = clamp(Number(slider.value), min, max);
+          input.value = val;
+          state[key] = val;
+          recalculateAndRender();
+        });
+
+        input.addEventListener('input', () => {
+          const raw = Number(input.value);
+          if (!isNaN(raw)) {
+            const val = clamp(raw, min, max);
+            slider.value = val;
+            state[key] = val;
+            recalculateAndRender();
+          }
+        });
+
+        input.addEventListener('blur', () => {
+          const val = clamp(Number(input.value) || min, min, max);
+          input.value = val;
+          slider.value = val;
+          state[key] = val;
+          recalculateAndRender();
+        });
+      }
+
+      bindInputPair(initialSlider, initialInput, 100, 50000, 'initial');
+      bindInputPair(monthlySlider, monthlyInput, 0, 2000, 'monthly');
+      bindInputPair(yearsSlider, yearsInput, 1, 30, 'years');
+
+      // Benchmark Preset Selection
+      presetButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          presetButtons.forEach((b) => {
+            b.classList.remove('active', 'border-2', 'border-gold', 'bg-gold/10');
+            b.classList.add('border', 'border-borderWarm', 'bg-cream/60');
+          });
+          btn.classList.remove('border', 'border-borderWarm', 'bg-cream/60');
+          btn.classList.add('active', 'border-2', 'border-gold', 'bg-gold/10');
+
+          state.annualRate = parseFloat(btn.dataset.rate);
+          state.presetName = btn.dataset.name;
+          recalculateAndRender();
+        });
+      });
+
+      // Interactive Pointer Hover / Touch on Canvas
+      function handlePointerMove(clientX) {
+        const rect = canvas.getBoundingClientRect();
+        const padLeft = 58;
+        const padRight = 18;
+        const plotW = rect.width - padLeft - padRight;
+        const relX = clientX - rect.left - padLeft;
+
+        const ratio = clamp(relX / plotW, 0, 1);
+        const idx = Math.round(ratio * (state.schedule.length - 1));
+        if (state.hoveredIndex !== idx) {
+          state.hoveredIndex = idx;
+          updateTooltipBar(idx);
+          drawChart();
+        }
+      }
+
+      canvas.addEventListener('mousemove', (e) => handlePointerMove(e.clientX));
+      canvas.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          handlePointerMove(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('mouseleave', () => {
+        state.hoveredIndex = null;
+        updateTooltipBar(state.schedule.length - 1);
+        drawChart();
+      });
+
+      // Redraw on window resize
+      window.addEventListener('resize', drawChart);
+
+      // Initialize on load
+      window.addEventListener('load', recalculateAndRender);
+      recalculateAndRender();
+    })();
+  </script>
+</body>
+</html>
